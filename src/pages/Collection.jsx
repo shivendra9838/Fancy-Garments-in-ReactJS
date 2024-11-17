@@ -11,12 +11,12 @@ const Collection = () => {
   const [sortType,setSortType] = useState("a");
   const {search,showSearch} = useContext(ShopContext);
 
-  const toggleCategory = (e)=>{
+  const toggleCategory = (e)=>{  //e means event
     if(category.includes(e.target.value)){
       setCategory(prev=> prev.filter(item => item !== e.target.value))
     }
     else{
-      setCategory(prev=> [...prev,e.target.value]);
+      setCategory(prev=> [...prev,e.target.value]);  //using spreed operator ...
     }
   }
 
@@ -28,7 +28,7 @@ const Collection = () => {
       setSubCategory(prev => [...prev,e.target.value])
     }
   }
-  
+  //when we click men category it will show all the men category
   const applyFilter = ()=>{
     let productCopy = products;
     if(category.length > 0)
@@ -43,7 +43,7 @@ const Collection = () => {
   }
 
   const sortProduct = ()=>{
-    let fpCopy = collectionItems.slice();
+    let fpCopy = collectionItems.slice();  //it will create filter copy item
     switch(sortType){
       case 'low-high':
         setCollectionItems(fpCopy.sort((a,b)=>(a.price - b.price)))
@@ -101,7 +101,7 @@ const Collection = () => {
         <div className='flex justify-between text-2xl mb-4'>
           <Title text1={'All'} text2={'COLLECTIONS'}/>
           <select onChange={(e)=>setSortType(e.target.value)} className='border-2 border-gray-300 text-sm px-2'>
-            <option value="relevant">Sort By Relvance</option>
+            <option value="relevant">Sort By Relavant</option>
             <option value="low-high">Sort By Low to High</option>
             <option value="high-low">Sort By High to Low</option>
           </select>

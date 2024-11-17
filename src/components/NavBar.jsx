@@ -12,7 +12,8 @@ const NavBar = () => {
       <ul className='flex gap-5'>
         <NavLink to='/' className='flex flex-col items-center gap-1'>
             <p>HOME</p>
-            <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden'></hr>
+            {/* hr tag is use for underline hidden property use kiya hai jb hum home pr click krenge to niche underline show hoga  eska css index.css me hai */}
+            <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden'></hr>  
         </NavLink>
         <NavLink to='/collection' className='flex flex-col items-center gap-1'>
             <p>COLLECTION</p>

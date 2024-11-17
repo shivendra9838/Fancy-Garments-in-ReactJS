@@ -10,6 +10,7 @@ const LatestComponent = () => {
       setLatestProduct(products.slice(0,12));
     },[])
     // console.log(products)
+// latest collection of Home page
   return (
     <div className='my-10'>
       <div className='text-center py-8 text-3xl'>

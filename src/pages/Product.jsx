@@ -12,7 +12,7 @@ const Product = () => {
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
-  const [temp,setTemp] = useState([]);
+  const [temp, setTemp] = useState([]);
   // console.log(productData);
 
   const fetchProductData = async () => {
@@ -24,8 +24,8 @@ const Product = () => {
       }
     });
   };
-  const recommend = async()=>{
-    const l = products.filter((item)=>{
+  const recommend = async () => {
+    const l = products.filter((item) => {
       return productData.category == item.category || productData.subCategory == item.subCategory
     })
     setTemp(l);
@@ -36,13 +36,15 @@ const Product = () => {
   }, [productId]);
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
+      {/* --product data */}
       <div className="flex gap-12">
         <div className="flex flex-1 gap-2">
+          {/* product image */}
           <div className="flex flex-col overflow-y-scroll justify-normal w-[19%]">
             {productData.image.map((item) => (
               <img
                 onMouseEnter={() => setImage(item)}
-                onMouseLeave={()=>setImage(productData.image[0])}
+                onMouseLeave={() => setImage(productData.image[0])}
                 key={item}
                 className="w-full mb-2 cursor-pointer"
                 src={item}
@@ -76,17 +78,16 @@ const Product = () => {
               {productData.sizes.map((item, index) => (
                 <button
                   onClick={() => setSize(item)}
-                  className={`border py-2 px-3 bg-gray-100 ${
-                    item === size ? "border-orange-500" : ""
-                  }`}
+                  className={`border py-2 px-3 bg-gray-100 ${item === size ? "border-orange-500" : ""
+                    }`}
                   key={index}>
                   {item}
                 </button>
               ))}
             </div>
           </div>
-          <button onClick={()=>{
-            addToCart(productData._id,size)
+          <button onClick={() => {
+            addToCart(productData._id, size)
           }} className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700">
             ADD TO CART
           </button>
@@ -99,22 +100,22 @@ const Product = () => {
         </div>
       </div>
       <div className='mt-20'>
-          <div className="flex">
-              <b className="border px-5 py-3 text-sm ">Description</b>
-              <p className="border px-5 py-3 text-sm">Reviews(123)</p>
-          </div>
-          <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
-              <p>An e-commerce website is an online platform that facilitates the buying and selling of products or services over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their products, interact with customers, and conduct transactions without the need for a physical presence. E-commerce websites have gained immense popularity due to their convenience, accessibility, and the global reach they offer.
+        <div className="flex">
+          <b className="border px-5 py-3 text-sm ">Description</b>
+          <p className="border px-5 py-3 text-sm">Reviews(123)</p>
+        </div>
+        <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
+          <p>An e-commerce website is an online platform that facilitates the buying and selling of products or services over the internet. It serves as a virtual marketplace where businesses and individuals can showcase their products, interact with customers, and conduct transactions without the need for a physical presence. E-commerce websites have gained immense popularity due to their convenience, accessibility, and the global reach they offer.<br></br>
 
-E-commerce websites typically display products or services along with detailed descriptions, images, prices, and any available variations (e.g., sizes, colors). Each product usually has its own dedicated page with relevant information.</p>
-          </div>
+            E-commerce websites typically display products or services along with detailed descriptions, images, prices, and any available variations (e.g., sizes, colors). Each product usually has its own dedicated page with relevant information.</p>
+        </div>
       </div>
       <div className="my-14">
         <div className="font-medium text-3xl text-center mt-10">
-          <Title text1={'RELATED'} text2={'PRODUCTS'}/>
+          <Title text1={'RELATED'} text2={'PRODUCTS'} />
         </div>
         <div className="my-3">
-            <RelatedProducts category={productData.category} subCategory={productData.subCategory}/>
+          <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
         </div>
       </div>
     </div>

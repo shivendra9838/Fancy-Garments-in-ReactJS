@@ -1,3 +1,4 @@
+// esme jitne bhi product hai hum usko shopcontext se manage krenge.
 import { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets";
 import {toast} from 'react-toastify'
@@ -9,7 +10,7 @@ const ShopContextProvider = (props)=>{
     const [search,setSearch] = useState('');
     const [showSearch,setShowSearch] = useState(false);
     const [cartItems,setCartItems] = useState({});
-    const addToCart = async (itemId,size)=>{
+    const addToCart = async (itemId,size)=>{  //add to card 
         if(!size){
             toast.error('Select Product Size');
             return;
@@ -29,7 +30,7 @@ const ShopContextProvider = (props)=>{
         }
         setCartItems(cartData);
     }
-    const getCartCount = ()=>{
+    const getCartCount = ()=>{  //when you add the product the card it will shown the cart
         let totalCount = 0;
         for(const i in cartItems){
             for(const j in cartItems[i]){

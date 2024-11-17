@@ -26,7 +26,7 @@ const NewsLetterBox = () => {
 
       {isSubscribed ? (
         <p className='mt-6 text-green-600 text-lg font-semibold transition-opacity duration-700 ease-in-out'>
-          🎉 Thank you for subscribing! You’ll receive the latest updates soon.
+          🎉😀Thank you for subscribing! You’ll receive the latest updates soon.
         </p>
       ) : (
         <form onSubmit={onSubmitHandler} className='w-1/2 flex items-center mx-auto my-6 border pl-3 shadow-md rounded-md'>

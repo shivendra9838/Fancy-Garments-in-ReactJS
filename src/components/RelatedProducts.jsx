@@ -8,7 +8,7 @@ const RelatedProducts = ({category,subCategory}) => {
     const [related,setRelated] = useState([]);
     useEffect(()=>{
         if(products.length > 0){
-            let productCopy = products.slice();
+            let productCopy = products.slice();  //it will copy of all product
             productCopy = productCopy.filter((item)=>category === item.category || item.subCategory === subCategory)
 
             setRelated(productCopy.slice(0,5));
