@@ -6,7 +6,7 @@ import CartTotal from '../components/CartTotal'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-  const {products,currency,cartItems,updateQuantity} = useContext(ShopContext)
+  const {products,currency,cartItems,updateQuantity} = useContext(ShopContext)   //Fetches values from the ShopContext
   const [cartData,setCartData] = useState([]);
   useEffect(()=>{
     const tempData = [];

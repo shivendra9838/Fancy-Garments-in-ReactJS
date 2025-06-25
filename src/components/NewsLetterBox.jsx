@@ -36,7 +36,7 @@ const NewsLetterBox = () => {
             placeholder='Enter your e-mail'
             required
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}  //it gets the current value of the input field
           />
           <button type='submit' className='bg-black text-white text-sm font-medium px-8 py-3 rounded-r-md transition-transform hover:scale-105'>
             SUBSCRIBE

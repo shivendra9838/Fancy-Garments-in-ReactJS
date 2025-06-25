@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import Title from '../components/Title';
 import NewsLetterBox from '../components/NewsLetterBox';
 import { assets } from '../assets/assets';
-import { motion } from 'framer-motion'; // Correctly import framer-motion
+import { motion } from 'framer-motion';   // adding animations and transitions to React components.
 
 const About = () => {
   // State to manage showing more testimonials
   const [showMore, setShowMore] = useState(false);
 
-  // Testimonials data (you can add more customers here)
+
   const testimonials = [
     {
       name: "Aman Gupta",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgdyzzpzkOm8vfDeyi8HIJQaPQBc9TDTYcOg&s", // Corrected URL in quotes
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgdyzzpzkOm8vfDeyi8HIJQaPQBc9TDTYcOg&s",
       text: "Fancy Garments is amazing! I found the perfect outfit for my special occasion, and the delivery was super fast.",
     },
-    
+
     {
       name: "Rahul Kumar",
       photo: "data:image/jpeg;base64,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", // Example: assets.john_photo = 'path/to/photo.jpg'
@@ -33,7 +33,7 @@ const About = () => {
     },
     {
       name: "Sarah Wilson",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwe4kzPRLWNBj34mlrylYKJ2O5IUJwXbQjGA&s", // Example: assets.sarah_photo = 'path/to/photo.jpg'
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwe4kzPRLWNBj34mlrylYKJ2O5IUJwXbQjGA&s",
       text: "I absolutely love the variety of styles. There's something for everyone, and the service is unbeatable.",
     },
   ];
@@ -46,12 +46,12 @@ const About = () => {
 
       {/* Animated Image Section */}
       <motion.div
-        className='my-10 flex flex-row gap-16'
-        initial={{ opacity: 0 }}
+        className='my-10 flex flex-row gap-16'  //my-10 tailwind css vertical margin 10
+        initial={{ opacity: 0 }}   //fully transparent
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1 }}   //fully visible
       >
-          <img className='max-w-[450px]' src={assets.about_img} alt="About us" />
+        <img className='max-w-[450px]' src={assets.about_img} alt="About us" />
         <div className='flex flex-col justify-center gap-6 w-2/4 text-gray-600'>
           <p>Fancy Garments is a brand born out of a passion for fashion innovation. We focus on creating trendy, high-quality clothing for every occasion. Our journey started in [Year], and since then, we’ve been committed to offering the best shopping experience for our customers.</p>
           <p>Our mission is simple: to empower you to look and feel great while enjoying a seamless shopping experience online.</p>
@@ -125,33 +125,33 @@ const About = () => {
         transition={{ duration: 1, delay: 0.7 }}
       >
         <img
-          src="https://s.alicdn.com/@sc04/kf/H33c179f41bcd42b7814510dcabd6c913R.jpg_720x720q50.jpg" // Replace with your actual product image URL
+          src="https://s.alicdn.com/@sc04/kf/H33c179f41bcd42b7814510dcabd6c913R.jpg_720x720q50.jpg"  
           alt="Product 1"
           className="w-[300px] h-[300px] object-cover rounded-lg shadow-lg"
         />
         <img
-          src="https://5.imimg.com/data5/IY/LM/MY-26694604/boy-fancy-garment-500x500.jpg" // Replace with your actual product image URL
+          src="https://5.imimg.com/data5/IY/LM/MY-26694604/boy-fancy-garment-500x500.jpg" L
           alt="Product 2"
           className="w-[300px] h-[300px] object-cover rounded-lg shadow-lg"
         />
         <img
-          src="https://2.imimg.com/data2/LG/VI/MY-3760883/jacket-denim.jpg" // Replace with your actual product image URL
+          src="https://2.imimg.com/data2/LG/VI/MY-3760883/jacket-denim.jpg" 
           alt="Product 3"
           className="w-[300px] h-[300px] object-cover rounded-lg shadow-lg"
         />
 
-<img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp60iJ1WyTUZ59nnMq1r5MxQWgUXvxQPJXoQ&s" // Replace with your actual product image URL
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp60iJ1WyTUZ59nnMq1r5MxQWgUXvxQPJXoQ&s" 
           alt="Product 1"
           className="w-[300px] h-[300px] object-cover rounded-lg shadow-lg"
         />
         <img
-          src="https://www.montecarlo.in/cdn/shop/files/22408599-4-36_1.jpg?v=1720770853" // Replace with your actual product image URL
+          src="https://www.montecarlo.in/cdn/shop/files/22408599-4-36_1.jpg?v=1720770853" 
           alt="Product 2"
           className="w-[300px] h-[300px] object-cover rounded-lg shadow-lg"
         />
         <img
-          src="https://assets.ajio.com/medias/sys_master/root/20231013/GuRP/65295576ddf77915193a646a/-473Wx593H-443011920-olive-MODEL2.jpg" // Replace with your actual product image URL
+          src="https://assets.ajio.com/medias/sys_master/root/20231013/GuRP/65295576ddf77915193a646a/-473Wx593H-443011920-olive-MODEL2.jpg" 
           alt="Product 3"
           className="w-[300px] h-[300px] object-cover rounded-lg shadow-lg"
         />
@@ -172,7 +172,8 @@ const About = () => {
         <div className='w-full max-w-[800px] space-y-6'>
           {testimonials.slice(0, showMore ? testimonials.length : 3).map((testimonial, index) => (
             <div key={index} className='bg-gray-100 p-6 rounded-lg shadow-lg'>
-              <div className='flex items-center space-x-4'>
+              {/* profile picture */}
+              <div className='flex items-center space-x-4'> 
                 <img src={testimonial.photo} alt={testimonial.name} className='w-16 h-16 rounded-full object-cover' />
                 <div>
                   <p className='text-lg text-gray-600 italic'>" {testimonial.text} "</p>

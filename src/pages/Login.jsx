@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-// Define the keyframe animation for success message
+
 const showMessage = keyframes`
   0% {
     opacity: 0;
@@ -16,8 +16,6 @@ const showMessage = keyframes`
     transform: rotateY(0deg);
   }
 `;
-
-// Success message with animation
 const SuccessMessage = styled.p`
   opacity: 0;
   transform: rotateY(-90deg);

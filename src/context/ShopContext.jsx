@@ -1,4 +1,4 @@
-// esme jitne bhi product hai hum usko shopcontext se manage krenge.
+// Esme Jitne bhi product hai hum esko shopContext se manage krenge.
 import { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets";
 import {toast} from 'react-toastify'
@@ -15,18 +15,18 @@ const ShopContextProvider = (props)=>{
             toast.error('Select Product Size');
             return;
         }
-        let cartData = structuredClone(cartItems);
+        let cartData = structuredClone(cartItems);  //create copy f cartItems
         if(cartData[itemId]){
             if(cartData[itemId][size]){
-                cartData[itemId][size] += 1;
+                cartData[itemId][size] += 1;  //if the item exist it will increment
             }
-            else{
+            else{   
                 cartData[itemId][size] = 1;
             }
         }
         else{
             cartData[itemId] = {};
-            cartData[itemId][size] = 1;
+            cartData[itemId][size] = 1;   //if the item is not exist it will take the item
         }
         setCartItems(cartData);
     }

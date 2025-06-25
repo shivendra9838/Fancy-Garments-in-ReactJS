@@ -10,7 +10,7 @@ const SearchBar = () => {
     if(!location.pathname.includes('/collection'))
       setShowSearch(false)
   },[location])
-  return showSearch ?  (  //  ? it is ternary operator if showSearch is true it will displayed if it is false it will not displayed
+  return showSearch ?  (  
     <div className='border border-b bg-gray-50 text-center m-3'>
       <div className='inline-flex items-center border border-gray-400 px-5 py-2 my-5 mx-3 rounded-full w-1/2' >
         <input className='flex-1 outline-none bg-inherit text-sm' type="text" placeholder='Search' value={search} onChange={(e)=>setSearch(e.target.value)} />
